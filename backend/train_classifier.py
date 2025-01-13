@@ -1,0 +1,75 @@
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+import joblib
+
+# Load the dataset
+dataset_path = "./datasets/exercise_data.csv"
+try:
+    data = pd.read_csv(dataset_path)
+    print("Dataset loaded successfully!")
+except Exception as e:
+    print(f"Error loading dataset: {e}")
+    exit()
+
+# Print a preview of the data
+print("Dataset Preview:")
+print(data.head())
+print(data.info())  # Check for missing values or invalid data
+
+# Check for non-numeric columns
+non_numeric_columns = data.select_dtypes(include=['object']).columns
+if len(non_numeric_columns) > 0:
+    print(f"Non-numeric columns detected: {list(non_numeric_columns)}")
+    print("Attempting to preprocess...")
+
+    # Convert non-numeric columns to numeric or remove them
+    for col in non_numeric_columns:
+        print(f"Column {col} has invalid data. Removing it.")
+        data.drop(columns=[col], inplace=True)
+
+# Ensure no missing values
+data = data.dropna()
+
+# Separate features and labels
+try:
+    X = data.iloc[:, :-1]  # Features
+    y = data.iloc[:, -1]   # Labels
+
+    print("Unique Labels:", y.unique())
+except Exception as e:
+    print(f"Error processing dataset: {e}")
+    exit()
+
+# Split into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train the model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+try:
+    print("Training the model...")
+    model.fit(X_train, y_train)
+    print("Model training complete!")
+except Exception as e:
+    print(f"Error during model training: {e}")
+    exit()
+
+# Evaluate the model
+try:
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f"Model Accuracy: {accuracy}")
+    print("Classification Report:")
+    print(classification_report(y_test, y_pred))
+except Exception as e:
+    print(f"Error during evaluation: {e}")
+
+# Save the trained model
+model_path = "./models/exercise_classifier.pkl"
+try:
+    joblib.dump(model, model_path)
+    print(f"Model saved at {model_path}")
+except Exception as e:
+    print(f"Error saving model: {e}")

@@ -1,0 +1,30 @@
+.leaderboard {
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #6200ea;
+    border-radius: 8px;
+    background-color: #f4f4f9;
+    max-width: 600px;
+  }
+  
+  .leaderboard h2 {
+    color: #6200ea;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #6200ea;
+    color: white;
+  }
+  

@@ -1,0 +1,71 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  .App {
+    text-align: center;
+  }
+  
+  .App-header {
+    background-color: #6200ea;
+    color: white;
+    padding: 20px;
+    border-bottom: 5px solid #3700b3;
+  }
+  
+  .App-header h1 {
+    font-size: 2.5em;
+  }
+  
+  .App-footer {
+    margin-top: 20px;
+    background-color: #6200ea;
+    color: white;
+    padding: 10px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .upload-button {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .upload-button:hover {
+    background-color: #3700b3;
+  }
+  
+  .feedback-summary {
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px;
+    border: 2px solid #6200ea;
+    border-radius: 5px;
+    background-color: #ffffff;
+  }
+  
+  .feedback-summary h3 {
+    color: #6200ea;
+  }
+  
+  ul {
+    text-align: left;
+    padding: 0 20px;
+  }
+  
+  input[type="file"] {
+    margin-top: 10px;
+  }
+  

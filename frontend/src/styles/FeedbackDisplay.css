@@ -1,0 +1,20 @@
+.feedback-display {
+    text-align: left;
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px solid #6200ea;
+    border-radius: 8px;
+    background-color: #ffffff;
+    max-width: 600px;
+  }
+  
+  .feedback-display h2 {
+    color: #6200ea;
+    margin-bottom: 10px;
+  }
+  
+  .feedback-display ul {
+    padding-left: 20px;
+    list-style: disc;
+  }
+  
